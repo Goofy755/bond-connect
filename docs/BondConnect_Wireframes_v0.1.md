@@ -11,7 +11,7 @@
 - **Events**
 - *(Optional)* **Inbox** (if not merged into Home/Chat)
 
-> Note: The journey map mentions “Notification → Inbox tab” and also a “Chat/Messenger tab.” For v0.1, we keep **Inbox** accessible from Home (bell icon) and optionally as a dedicated tab if needed.
+> **Note:** The **Calendar** and **Events** tabs both open the same calendar view (month + upcoming). **[+ Add]** from either tab opens the Event Type Picker (Quick Call, Deep Talk, Event). Inbox is accessible from Home (bell icon) and optionally as a dedicated tab.
 
 ---
 
@@ -162,7 +162,7 @@
 ---
 
 # 6) Inbox / Requests (Invites + Contact Requests)
-**Purpose:** Notification → Inbox tab; accept/decline/reschedule.
+**Purpose:** Notification → Inbox tab; accept / reschedule / decline. After Accept (confirm) or Decline, user returns to **Contacts** tab (or stays in Inbox, depending on product choice).
 
 ```
 +--------------------------------------------------+
@@ -206,7 +206,7 @@
 | Tom (Friend) • SLC                Bar: [■■■□□]    |
 | Last: 180d • Cadence: Monthly                    |
 |--------------------------------------------------|
-| Ashley (Colleague) • Provo        Bar: [■■■■□]    |
+| Ashley (Work) • Provo             Bar: [■■■■□]    |
 | Last: 14d • Cadence: Bi-weekly                   |
 |--------------------------------------------------|
 | Jamie (Family) • Ogden            Bar: [■■□□□]    |
@@ -418,6 +418,8 @@
 ---
 
 # 18) Respond to Invite (Accept / Reschedule / Decline)
+**Purpose:** From Inbox, user confirms Accept or sends Decline. After **Confirm** or **Send Decline**, user returns to **Contacts** tab (aligned with Journey).
+
 **Accept**
 ```
 +--------------------------------------------------+
@@ -467,6 +469,8 @@
 ```
 +--------------------------------------------------+
 | Chat                                              |
+|--------------------------------------------------|
+| Contacts today: 3                                 |
 |--------------------------------------------------|
 | Conversations                                     |
 | • Tom (2) — "Friday works."                       |
