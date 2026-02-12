@@ -104,7 +104,7 @@
 ---
 
 # 4) Permissions (Notifications, Calendar)
-**Purpose:** Enable reminders + optional calendar sync.
+**Purpose:** Enable reminders + optional calendar sync. Let user choose when to receive notifications (date/time/duration).
 
 ```
 +--------------------------------------------------+
@@ -113,6 +113,17 @@
 | Get reminders and invitations instantly.         |
 | [Allow Notifications]                            |
 | [Not Now]                                        |
++--------------------------------------------------+
+
++--------------------------------------------------+
+| When to notify (optional)                         |
+|--------------------------------------------------|
+| Preferred reminder time:  [__:__ AM/PM ▾]        |
+| Remind me for events:     [1 hour ▾] before     |
+|                          (15 min / 1 hr / 1 day) |
+| Quiet hours (no pings):   [9:00 PM] to [7:00 AM] |
+|--------------------------------------------------|
+| [Save]                                            |
 +--------------------------------------------------+
 
 +--------------------------------------------------+
@@ -127,7 +138,7 @@
 ---
 
 # 5) Home Dashboard (Social Bar + Weekly Capacity + Nudges)
-**Purpose:** Daily/weekly reason to open; show Social Bar, capacity, and prompts.
+**Purpose:** Daily/weekly reason to open; show Social Bar and Weekly Capacity with level stage (Min / Balance / Max); show monthly % by category (Work, Family, Partner, Friends, Self).
 
 ```
 +--------------------------------------------------+
@@ -135,9 +146,18 @@
 |--------------------------------------------------|
 | Good evening, Mike.                              |
 |                                                  |
-| Social Bar (Today): [■■■■■■■■□□] 80%             |
-| Weekly Capacity:     [■■■■■■□□□] 70% used        |
-|                                                  |
+| Social Bar (Today)                               |
+| [■■■■■■■■□□] 80%   Stage: Balance               |
+| (Min / Balance / Max)                            |
+|--------------------------------------------------|
+| Weekly Capacity                                  |
+| [■■■■■■□□□] 70% used   Stage: Balance           |
+| (Min / Balance / Max)                            |
+|--------------------------------------------------|
+| This Month — Social bar by category              |
+| Work:    25%  Family: 20%  Partner: 15%           |
+| Friends: 30%  Self:   10%                         |
+|--------------------------------------------------|
 | Quick Check-in (10 sec):                         |
 | "How full is your social energy today?"          |
 | [Low] [Medium] [High]                            |
@@ -154,8 +174,9 @@
 ```
 
 **Components**
-- Social Bar meter + tooltip: “What changes this?”
-- Weekly Capacity + guardrail messaging
+- Social Bar (Today): meter, %, and stage (Min / Balance / Max) + tooltip: “What changes this?”
+- Weekly Capacity: meter, % used, and stage (Min / Balance / Max) + guardrail messaging
+- Monthly: % of social bar per category (Work, Family, Partner, Friends, Self)
 - Reconnect suggestions (light CRM)
 - CTA shortcuts to create flows
 
@@ -194,109 +215,206 @@
 ---
 
 # 7) Contacts List
-**Purpose:** Show all contacts, location, social bar per contact, add contact.
+**Purpose:** Show all contacts with relationship status (Friend, Family, Partner, Colleagues), sort by Most % / Less % / groups, social bar stage (Min/Balance/Max) and % invested each way, top activities, overall % social with you, and connection counts (calls, text, meetup, invites). Add contact and create group.
 
 ```
 +--------------------------------------------------+
-| Contacts                               [+ Add]   |
+| Contacts                    [+ Add] [Create group] |
 |--------------------------------------------------|
 | Search: [_________________________]              |
-| Filters: [All] [Friends] [Family] [Work]         |
 |--------------------------------------------------|
-| Tom (Friend) • SLC                Bar: [■■■□□]    |
-| Last: 180d • Cadence: Monthly                    |
+| Sort: [All] [Friends] [Family] [Partner]        |
+|       [Colleagues] [Most %] [Less %] [My groups] |
 |--------------------------------------------------|
-| Ashley (Work) • Provo             Bar: [■■■■□]    |
-| Last: 14d • Cadence: Bi-weekly                   |
+| Tom (Friend) • SLC                               |
+| Social bar: [■■■□□] Stage: Balance               |
+| With you: 65% (you→them) / 58% (them→you)        |
+| Overall: 18.2% of social time with you           |
+| Top: Calls · Dinner · Working out                |
+| Connections: 12 calls · 24 texts · 3 meetups · 2 invites |
 |--------------------------------------------------|
-| Jamie (Family) • Ogden            Bar: [■■□□□]    |
-| Last: 40d • Cadence: Monthly                     |
+| Ashley (Colleagues) • Provo                       |
+| Social bar: [■■■■□] Stage: Balance               |
+| With you: 42% (you→them) / 38% (them→you)       |
+| Overall: 21.7% of social time with you            |
+| Top: Work related · Calls · Dinner                |
+| Connections: 8 calls · 41 texts · 5 meetups · 4 invites |
+|--------------------------------------------------|
+| Jamie (Family) • Ogden                           |
+| Social bar: [■■□□□] Stage: Min                   |
+| With you: 22% (you→them) / 25% (them→you)        |
+| Overall: 8.1% of social time with you             |
+| Top: Calls · Dinner                              |
+| Connections: 5 calls · 12 texts · 1 meetup · 0 invites |
 +--------------------------------------------------+
 ```
+
+**Components**
+- **Relationship status:** Friend, Family, Partner, Colleagues (per contact).
+- **Sort tabs:** All, by status (Friends / Family / Partner / Colleagues), Most % (highest overall % with you), Less % (lowest), My groups (custom groups).
+- **Social bar per contact:** Meter + stage (Min / Balance / Max); % you invest in them, % they invest in you.
+- **Overall %:** Share of social time they spend with you since you connected (e.g. 21.7% with you).
+- **Most common:** Top activities — e.g. Calls, Working out, Dinner, Work related.
+- **Connections:** Counts for calls, text, meetups, invites.
+- **[Create group]:** Let user define groups and filter by them.
 
 ---
 
 # 8) Add Contact
-**Purpose:** Journey 3 — input phone + name + status + city; send invite.
+**Purpose:** Journey 3 — input name, phone, email (separate), status, city; send invite via text or email with pre-written prompt; or add by scanning their QR code / share your QR for them to scan.
 
 ```
 +--------------------------------------------------+
-| Add Contact                                      |
+| Add Contact                         [Scan QR]    |
 |--------------------------------------------------|
 | Name:       [_________________________]          |
-| Phone/Email:[_________________________]          |
+| Phone:      [_________________________]          |
+| Email:      [_________________________]          |
 | Status:     [Friend ▾] (Friend/Partner/Family/Work)|
 | City:       [_________________________]          |
 | Cadence:    [Monthly ▾] (Weekly/Bi-weekly/Monthly)|
 | Notes:      [_________________________]          |
 |--------------------------------------------------|
+| Send invite                                      |
+| [Send text message]  [Send email]                |
+| Pre-written prompt:                              |
+| "Hi, I'd like to connect with you on BondConnect  |
+|  so we can stay in touch and plan time together." |
+| [Edit prompt]                                     |
+|--------------------------------------------------|
+| Or: [Show my QR code] — they scan to connect     |
+|--------------------------------------------------|
 | [Review]                                         |
 +--------------------------------------------------+
 ```
 
+**Components**
+- **Phone** and **Email** as separate inputs.
+- **Send invite:** Choose **Send text message** or **Send email**; app uses pre-written prompt (user can edit before sending).
+- **Scan QR:** Add contact by scanning their BondConnect QR code.
+- **Show my QR code:** User shares their QR so the other person can scan to connect.
+
 ---
 
 # 9) Contact Detail (Relationship CRM View)
-**Purpose:** Relationship profile with history, cadence, planned next touch, notes.
+**Purpose:** Full profile for one contact: status, add to group, sort by group, **person goals for BondConnect** (e.g. primary: romantic relationship, secondary: strong high school friends), social bar, capacity, top activities, connections, who engages most, and event history.
 
 ```
 +--------------------------------------------------+
-| Tom (Friend)                           [⋯]       |
+| Tom (Friend) • SLC                    [⋯] [Add to group] |
 |--------------------------------------------------|
-| Social Bar (with Tom): [■■■□□] "Energizing"       |
-| Cadence: Monthly  • City: SLC                     |
-| Last Connection: 180 days                         |
+| Status: [Friend ▾] (Friend/Family/Partner/Colleagues)   |
+| Sort by group: [All] [Family] [Close friends] [Work] …  |
+|--------------------------------------------------|
+| Person goals for BondConnect                      |
+| Primary:   Focus more on romantic relationship    |
+| Secondary: Strong relationship with high school   |
+|            friends                                 |
+|--------------------------------------------------|
+| Social Bar (with Tom)  [■■■□□]  Stage: Balance  |
+| You→Tom: 65%   Tom→you: 58%                       |
+| Overall: 21.67% of Tom's social time with you     |
+|--------------------------------------------------|
+| Capacity Tom can receive                          |
+| This week:  ~12% more  Next week: ~25% more       |
+|--------------------------------------------------|
+| Most common together: Calls · Dinner · Working out|
+|--------------------------------------------------|
+| Connections: 12 calls · 24 texts · 3 meetups · 2 invites |
+| Who engages more: You (you initiate 58% of the time)    |
 |--------------------------------------------------|
 | Next Suggested Touch: This week                   |
 | [Plan Quick Call] [Plan Deep Talk] [Invite Event] |
 |--------------------------------------------------|
 | Notes                                             |
-| - High school friend, catch up on life            |
+| - High school friend, catch up on life             |
 | - Prefers evenings                                |
 |--------------------------------------------------|
-| History                                           |
+| History of events                                 |
 | • Jan 12 — Quick Call (15m) — Neutral             |
-| • Oct 01 — Deep Talk (30m) — Energizing           |
+| • Oct 01 — Deep Talk (30m) — Energizing            |
+| • Sep 15 — Dinner — Energizing                    |
+| • Aug 03 — Quick Call (15m) — Neutral             |
 +--------------------------------------------------+
 ```
+
+**Components**
+- **Status:** Friend, Family, Partner, Colleagues (editable); **Add to group** to create or add to a group.
+- **Sort by group:** Tabs to filter/view by group (All, or named groups) when needed.
+- **Person goals for BondConnect:** This contact’s stated goals (e.g. primary: focus more on romantic relationship; secondary: strong relationship with high school friends). Helps you see what they’re optimizing for.
+- **Social bar:** Meter + stage (Min / Balance / Max); % you invest in them, % they invest in you; **overall %** of their social time with you (e.g. 21.67% with you).
+- **Capacity:** % level they can receive this week and next week (how much more connection they have room for).
+- **Most common:** Top activities — Calls, Working out, Dinner, Work related.
+- **Connections:** Counts for calls, text, meetups, invites.
+- **Who engages the most:** Who initiates more (e.g. you 58%, them 42%).
+- **History of events:** Chronological list of past calls, meetups, events with this contact.
 
 ---
 
 # 10) Calendar
-**Purpose:** View month, upcoming events, add event.
+**Purpose:** View month; social bar % for month, week, and per upcoming event; weekly % beside calendar; and when the user is most active (time-of-day categories).
 
 ```
 +--------------------------------------------------+
 | Calendar                              [+ Add]    |
 |--------------------------------------------------|
-| Month View (Feb 2026)                             |
-| Su Mo Tu We Th Fr Sa                              |
-|  1  2  3  4  5  6  7                              |
-|  8  9 10 11 12 13 14                              |
-| 15 16 17 18 19 20 21                              |
-| 22 23 24 25 26 27 28                              |
+| Social bar — Month: 68%  |  This week: 70% done  |
 |--------------------------------------------------|
-| Upcoming                                          |
-| • Fri 7:30 PM — Deep Talk with Tom (Pending)      |
-| • Sat 6:00 PM — Dinner Event (Pending)            |
+| Month View (Feb 2026)     |  This week social %  |
+| Su Mo Tu We Th Fr Sa      |  [■■■■■■■□□] 70%     |
+|  1  2  3  4  5  6  7      |                      |
+|  8  9 10 11 12 13 14      |  (Weekly social bar  |
+| 15 16 17 18 19 20 21      |   completed so far)  |
+| 22 23 24 25 26 27 28      |                      |
+|--------------------------------------------------|
+| Upcoming (social % each event)                    |
+| • Fri 7:30 PM — Deep Talk w/ Tom    +12% [Pending]|
+| • Sat 6:00 PM — Dinner Event       +18% [Pending]|
+| • Tue 12:00 PM — Quick Call Ashley  +8% [Pending]|
+|--------------------------------------------------|
+| Most active time (when you schedule / connect)    |
+| Early Morning  4–5:59 AM   [■□□□□□□]  5%         |
+| Morning        6–11:59 AM  [■■■□□□□] 18%         |
+| Afternoon     12–4:59 PM  [■■■■□□□] 22%         |
+| Evening        5–7:59 PM  [■■■■■■□] 28%         |
+| Late Evening   8–9:59 PM  [■■■■■□□] 15%         |
+| Night         10–11:59 PM [■■□□□□□]  8%         |
+| Late Night    12–3:59 AM  [■□□□□□□]  4%         |
 +--------------------------------------------------+
 ```
 
+**Components**
+- **Social bar %:** Whole month (e.g. 68%); this week (e.g. 70% done).
+- **Beside calendar:** Weekly social bar meter showing % done that week so far.
+- **Upcoming events:** Each event shows **% social** it takes (e.g. +12%, +18%); helps user see load at a glance.
+- **Most active time:** How often the user is active (scheduling/connecting) by time range: Early Morning (4–5:59 AM), Morning (6–11:59 AM), Afternoon (12–4:59 PM), Evening (5–7:59 PM), Late Evening (8–9:59 PM), Night (10–11:59 PM), Late Night (12–3:59 AM). Shown as bar + % per category.
+
 ---
 
-# 11) Event Type Picker (3 options)
-**Purpose:** Journey 1 mentions “list of three options”; clarify.
+# 11) Event Type Picker (3 options + customize)
+**Purpose:** Choose event type; see current Social Bar % and how much each type adds to it. Option to customize event. “three options”.
 
 ```
 +--------------------------------------------------+
 | Create                                            |
 |--------------------------------------------------|
-| Choose a type:                                    |
-| [1] Quick Phone Call (15m)                        |
-| [2] Deep Talk (30m)                               |
-| [3] Event (Group / Any length)                    |
+| Social Bar (now): [■■■■■■■■□□] 80%               |
+|--------------------------------------------------|
+| Choose a type:          Adds to social bar        |
+| [1] Quick Phone Call    +8% (15m)  or  +12% (30m)|
+| [2] Deep-Connection     +18% (1 hr) or +28% (2hr+)|
+| [3] Event (Group)       varies by length          |
+|--------------------------------------------------|
+| [Customize event] — set your own length & type   |
+|--------------------------------------------------|
+| [Continue]                                       |
 +--------------------------------------------------+
 ```
+
+**Components**
+- **Social Bar (now):** Current social bar % so user sees capacity before choosing.
+- **% per type:** Quick Phone Call +8% (15m) or +12% (30m); Deep-Connection +18% (1 hr) or +28% (2 hr+); Event varies by length.
+- **[Customize event]:** User can set custom length and type.
 
 ---
 
@@ -305,11 +423,16 @@
 +--------------------------------------------------+
 | Quick Phone Call                                 |
 |--------------------------------------------------|
-| Duration: [15 min ▾]                             |
+| Social bar (now): [■■■■■■■■□□] 80%              |
+|--------------------------------------------------|
+| Duration: [15 min ▾] (15m or 30m)               |
 | Date:     [____/____/____]                       |
 | Time:     [__:__ AM/PM]                          |
 | Contact:  [Select Contact ▾]                     |
 | Notes:    [_________________________]            |
+|--------------------------------------------------|
+| Social bar impact: +8% (15m) or +12% (30m)      |
+| If date set: Impact that day: +12% → Fri 14th: 92% |
 |--------------------------------------------------|
 | Capacity Check: "Within limits ✅"               |
 | [Review]                                         |
@@ -318,16 +441,21 @@
 
 ---
 
-# 13) Create 1:1 Deep Talk
+# 13) Create 1:1 Deep-Connection
 ```
 +--------------------------------------------------+
-| Deep Talk                                        |
+| Deep-Connection                                   |
 |--------------------------------------------------|
-| Duration: [30 min ▾]                             |
+| Social bar (now): [■■■■■■■■□□] 80%              |
+|--------------------------------------------------|
+| Duration: [1 hour ▾] (1 hr or 2 hr+)             |
 | Date:     [____/____/____]                       |
 | Time:     [__:__ AM/PM]                          |
 | Contact:  [Select Contact ▾]                     |
 | Topic (optional): [____________________]         |
+|--------------------------------------------------|
+| Social bar impact: +18% (1 hr) or +28% (2 hr+)   |
+| If date set: Impact that day: +18% → Sat 15th: 98% |
 |--------------------------------------------------|
 | Capacity Check: "Near weekly limit ⚠"            |
 | Suggestion: [Shorten] [Reschedule] [Proceed]     |
@@ -344,6 +472,8 @@
 +--------------------------------------------------+
 | Create Event                                      |
 |--------------------------------------------------|
+| Social bar (now): [■■■■■■■■□□] 80%              |
+|--------------------------------------------------|
 | Title:        [_________________________]         |
 | Description:  [_________________________]         |
 | Duration:     [1 hour ▾] (custom allowed)         |
@@ -356,6 +486,9 @@
 | [Search contacts...]                              |
 | [ ] Tom   [ ] Ashley  [ ] Jamie  [ ] Adam ...     |
 |--------------------------------------------------|
+| Social bar impact: varies (e.g. +15% for 1 hr)   |
+| If date set: Impact that day: +15% → Sun 16th: 95% |
+|--------------------------------------------------|
 | Capacity Check: "This adds +15% load"             |
 | [Review]                                          |
 +--------------------------------------------------+
@@ -364,17 +497,20 @@
 ---
 
 # 15) Review & Send (Confirmation)
-**Purpose:** Journey steps include review screen then accept.
+**Purpose:** Journey steps include review screen then accept. User chooses how to send: text, email, or both.
 
 ```
 +--------------------------------------------------+
 | Review                                            |
 |--------------------------------------------------|
-| Type: Deep Talk (30 min)                          |
+| Type: Deep-Connection (1 hr or 2 hr)              |
 | With: Tom                                         |
 | When: Fri, Feb 13 • 7:30 PM                       |
 | Mode: Phone call                                  |
 | Notes: "Catch up"                                 |
+|--------------------------------------------------|
+| Send invite by:                                   |
+| [Text]  [Email]  [Both]                           |
 |--------------------------------------------------|
 | Status after send: Pending                        |
 | [Send Invite]                                     |
@@ -385,31 +521,48 @@
 ---
 
 # 16) Pending Status / Sent
+**Purpose:** Confirm send; show date/time and duration of what was sent; show when this contact typically checks inbox or responds.
+
 ```
 +--------------------------------------------------+
 | Sent ✅                                           |
 |--------------------------------------------------|
 | Invitation sent to Tom.                           |
+| Date/Time: Fri, Feb 13 • 7:30 PM                  |
+| Duration: 1 hr (Deep-Connection)                 |
 | Status: Pending response                          |
 |--------------------------------------------------|
-| [View Details]   [Invite Another]   [Done]        |
+| Tom usually checks inbox / responds:              |
+| Often: Morning, Late evening                     |
+| Rarely: Late morning, Afternoon                  |
+|--------------------------------------------------|
+| [View Details]   [Invite Another]   [Done]       |
 +--------------------------------------------------+
 ```
 
 ---
 
 # 17) Event Detail (Invitee View)
-**Purpose:** For invitee reviewing details from Inbox.
+**Purpose:** For invitee reviewing event details from Inbox. Shows Deep-Connection (1 hr or 2 hr), social bar impact, and when the sender typically checks inbox or responds.
 
 ```
 +--------------------------------------------------+
 | Event Details                                     |
 |--------------------------------------------------|
-| Deep Talk with Mike                               |
-| Duration: 30 min                                  |
+| Deep-Connection with Mike                         |
+| Duration: 1 hr (or 2 hr — per request)            |
 | When: Fri, Feb 13 • 7:30 PM                       |
 | Mode: Phone call                                  |
 | Notes: "Catch up"                                 |
+|--------------------------------------------------|
+| Your social bar — This week: [■■■■■■■□□] 70%      |
+| If you accept, Fri Feb 13: ~88% that day         |
+|--------------------------------------------------|
+| Social bar impact: +18% (1 hr) or +28% (2 hr)    |
+|--------------------------------------------------|
+| Mike usually checks inbox / responds:             |
+| Often: Morning, Late evening                     |
+| Rarely: Late morning, Afternoon                  |
 |--------------------------------------------------|
 | [Accept] [Reschedule] [Decline]                   |
 +--------------------------------------------------+
@@ -418,15 +571,19 @@
 ---
 
 # 18) Respond to Invite (Accept / Reschedule / Decline)
-**Purpose:** From Inbox, user confirms Accept or sends Decline. After **Confirm** or **Send Decline**, user returns to **Contacts** tab (aligned with Journey).
+**Purpose:** From Inbox, user confirms Accept or sends Decline; sees Deep-Connection (1 hr or 2 hr), current social bar, and impact. After **Confirm** or **Send Decline**, user returns to **Contacts** tab (aligned with Journey).
 
 **Accept**
 ```
 +--------------------------------------------------+
 | Confirm Accept                                    |
 |--------------------------------------------------|
-| You’re accepting: Deep Talk (30m)                 |
+| You’re accepting: Deep-Connection (1 hr or 2 hr)                 |
 | Fri Feb 13 • 7:30 PM                              |
+|--------------------------------------------------|
+| Your social bar (now): [■■■■■■■□□] 70%            |
+| Impact: +18% (1 hr) or +28% (2 hr) → that day ~88%|
+|--------------------------------------------------|
 | [Confirm]   [Back]                                |
 +--------------------------------------------------+
 ```
@@ -445,14 +602,24 @@
 ---
 
 # 19) Reschedule Flow
-**Purpose:** Journey 5 — reschedule sends user into calendar/event picker.
+**Purpose:** Journey 5 — reschedule sends user into calendar/event picker. Show current social bar for both parties, impact for this event, and when the other party typically checks inbox or responds. (Sender and receiver both see current social bar in their flows.)
 
 ```
 +--------------------------------------------------+
 | Reschedule                                        |
 |--------------------------------------------------|
+| Current social bar (both parties)                 |
+| You (sender):  [■■■■■■■□□] 70%   Impact: +18%    |
+| Mike (receiver): [■■■■■■□□□] 65%  Impact: +18%   |
+|--------------------------------------------------|
+| Mike usually checks inbox / responds:             |
+| Often: Morning, Late evening                     |
+| Rarely: Late morning, Afternoon                  |
+|--------------------------------------------------|
 | Suggested times (based on availability):          |
-| [Sat 3:00 PM]  [Sun 5:30 PM]  [Mon 7:00 PM]       |
+| [Sat 3:00 PM +18% → 88%] [Sun 5:30 PM +18% → 75%] |
+| [Mon 7:00 PM +18% → 82%]                          |
+| (Impact on your social bar that day)              |
 |--------------------------------------------------|
 | Or pick a new time:                               |
 | Date: [____/____/____]  Time: [__:__]             |
@@ -464,27 +631,47 @@
 ---
 
 # 20) Chat / Messenger
-**Purpose:** Basic messaging + quick “Add Event” CTA.
+**Purpose:** Basic messaging + quick “Add Event” CTA. Show social % exchanged, when contact chats back, current social bar (sender & receiver), chars/words exchanged, top topic.
 
 ```
 +--------------------------------------------------+
 | Chat                                              |
 |--------------------------------------------------|
+| Your social bar (now): [■■■■■■■□□] 70%           |
 | Contacts today: 3                                 |
+|--------------------------------------------------|
+| Tab: [Search contacts] [Most chat/message] [Least chat/message] |
+| Search: [_________________________] 🔍            |
 |--------------------------------------------------|
 | Conversations                                     |
 | • Tom (2) — "Friday works."                       |
 | • Ashley — "Where should we meet?"                |
 |--------------------------------------------------|
-| Open Chat: Tom                                    |
+| Open Chat: Ashley                                 |
 |--------------------------------------------------|
-| Tom: Friday works.                                |
-| You: Perfect — see you then.                      |
+| Ashley's social bar (now): [■■■■□□□] 65%          |
+| Social % exchanged (this convo): 8%               |
+| Ashley usually chats: Morning, Late evening       |
+| Rarely: Late morning, Afternoon                  |
+| Exchanged: 1,240 chars · 198 words               |
+| Top topic: Scheduling / meetups                   |
+|--------------------------------------------------|
+| Ashley: Where should we meet?                     |
+| You: How about the usual spot?                    |
+| Ashley: Perfect — see you then.                   |
 |--------------------------------------------------|
 | [Message…____________________] [Send]             |
 | [Add Event]                                       |
 +--------------------------------------------------+
 ```
+
+**Components**
+- **Current social bar:** You and the contact (e.g. Ashley) both see your own current social bar; sender and receiver see it in their view.
+- **Social % exchanged:** How much social % this whole conversation represents (e.g. 8%).
+- **When they chat:** Contact usually chats Morning, Late evening; rarely Late morning, Afternoon.
+- **Characters & words:** Total exchanged in this thread (e.g. 1,240 chars · 198 words).
+- **Top topic:** Most discussed topic in the conversation (e.g. Scheduling / meetups).
+- **Tab:** [Search contacts] [Most chat/message] [Least chat/message] — search contacts or filter by who chats/messages the most vs the least.
 
 ---
 
@@ -495,39 +682,64 @@
 +--------------------------------------------------+
 | Quick Check-in                                    |
 |--------------------------------------------------|
-| How did that connection feel?                     |
-| (Deep Talk with Tom • 30 min)                     |
+| Deep-Connection with Tom                          |
 |--------------------------------------------------|
-| [Energizing 😊]  [Neutral 🙂]  [Draining 😮‍💨]     |
+| How did that connection feel?                     |
+| [Energizing 😊] [Neutral 🙂] [Draining 😮‍💨] [Deep] |
 |--------------------------------------------------|
 | Want to reconnect again?                          |
 | [Soon] [Later] [Pause]                            |
 |--------------------------------------------------|
-| Optional note:                                    |
-| [_________________________]                       |
-| [Save]                                            |
+| Remind me: [_________________________]            |
+| (e.g. to reach out again, follow up)              |
+|--------------------------------------------------|
+| Optional note (or voice to text):                  |
+| [_________________________]  [🎤 Voice]           |
+|--------------------------------------------------|
+| [Track]                                           |
 +--------------------------------------------------+
 ```
 
 ---
 
 # 22) Settings
+**Purpose:** Profile, appearance, account security, social bar categories & scale, contact info, calendar links, and social links.
+
 ```
 +--------------------------------------------------+
 | Settings                                          |
 |--------------------------------------------------|
-| Profile                                           |
+| Appearance                                        |
+| • Light / Dark mode    [Light ▾]                  |
+|--------------------------------------------------|
+| Account & security                                |
+| • Email:  [_________________________]  [Change]   |
+| • Password:                           [Change]    |
+| • Phone:  [_________________________]  [Add]      |
+|--------------------------------------------------|
+| Profile                                            |
 | • Name, photo, timezone                           |
+| • Location: [_________________________]           |
 |--------------------------------------------------|
-| Preferences                                       |
+| Social bar — categorize by relationship           |
+| Set how Friend, Family, Partner, Work count:      |
+| Friend:   [■■■■□]  Family: [■■■■■]               |
+| Partner:  [■■■■■]  Work:   [■■■□□]               |
+| (slider or % per category)                        |
+|--------------------------------------------------|
+| Social bar scale                                  |
+| • Scale / sensitivity: [Low ▾] [Medium] [High]    |
 | • Weekly capacity target                          |
-| • Default cadence suggestions                     |
-| • Notification settings                           |
 |--------------------------------------------------|
-| Integrations                                      |
-| • Calendar connection (on/off)                    |
+| Calendar connection                               |
+| • [Link Apple Calendar]  [Link Google Calendar]   |
+| • [Link Calendly]                                 |
 |--------------------------------------------------|
-| Privacy                                           |
+| Other social links                                |
+| • [Add social link]  (e.g. LinkedIn, Instagram)   |
+| [_________________________] [Add]                 |
+|--------------------------------------------------|
+| Privacy                                            |
 | • Block/report user                               |
 | • Data export / delete                            |
 +--------------------------------------------------+
