@@ -104,7 +104,7 @@
 ---
 
 # 4) Permissions (Notifications, Calendar)
-**Purpose:** Enable reminders + optional calendar sync. Let user choose when to receive notifications (date/time/duration).
+**Purpose:** Enable reminders + optional calendar sync. Let user choose when to receive notifications: preferred time, quiet hours, and reminder lead time (e.g. 15 min / 1 hr / 1 day before events).
 
 ```
 +--------------------------------------------------+
@@ -183,7 +183,7 @@
 ---
 
 # 6) Inbox / Requests (Invites + Contact Requests)
-**Purpose:** Notification → Inbox tab; accept / reschedule / decline. After Accept (confirm) or Decline, user returns to **Contacts** tab (or stays in Inbox, depending on product choice).
+**Purpose:** Notification → Inbox tab; shows **weekly social bar** and **per-request impact**; event requests: accept / reschedule / decline; **new contact: Accept / Let's schedule or Decline**. After Accept (confirm) or Decline, user returns to **Contacts** tab (or stays in Inbox, depending on product choice).
 
 ```
 +--------------------------------------------------+
@@ -261,7 +261,7 @@
 ---
 
 # 8) Add Contact
-**Purpose:** Journey 3 — input name, phone, email (separate), status, city; send invite via text or email with pre-written prompt; or add by scanning their QR code / share your QR for them to scan.
+**Purpose:** Journey 3 — input name, phone, email (separate), status, city; send invite by **text, email, or both** (with editable prompt); or add via **QR** (scan theirs or show mine for them to scan).
 
 ```
 +--------------------------------------------------+
