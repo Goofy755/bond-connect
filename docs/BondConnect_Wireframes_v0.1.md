@@ -1,6 +1,8 @@
 # BondConnect — Text-Only Wireframes (v0.1)
 *Scope: screens we know we need from the current User Journey Map + identified gaps (habits, Social Bar logic, post-event reflection, guardrails). Text-only. No visuals, no colors.*
 
+> **Copy consistency:** Social bar is shown in context where decisions affect it. Use **"current social bar"** and **"impact that day"** where relevant.
+
 ---
 
 ## Global Navigation (Bottom Tabs)
@@ -11,7 +13,7 @@
 - **Events**
 - *(Optional)* **Inbox** (if not merged into Home/Chat)
 
-> **Note:** The **Calendar** and **Events** tabs both open the same calendar view (month + upcoming). **[+ Add]** from either tab opens the Event Type Picker (Quick Call, Deep Talk, Event). Inbox is accessible from Home (bell icon) and optionally as a dedicated tab.
+> **Note:** The **Calendar** and **Events** tabs both open the same calendar view (month + upcoming). **[+ Add]** from either tab opens the Event Type Picker (Quick Call, Deep-Connection, Event). Inbox is accessible from Home (bell icon) and optionally as a dedicated tab.
 
 ---
 
@@ -28,7 +30,7 @@
 10. Calendar
 11. Event Type Picker (3 options)
 12. Create 1:1 Quick Call
-13. Create 1:1 Deep Talk
+13. Create 1:1 Deep-Connection
 14. Create Group Event
 15. Review & Send (Confirmation)
 16. Pending Status / Sent
@@ -138,7 +140,7 @@
 ---
 
 # 5) Home Dashboard (Social Bar + Weekly Capacity + Nudges)
-**Purpose:** Daily/weekly reason to open; show Social Bar and Weekly Capacity with level stage (Min / Balance / Max); show monthly % by category (Work, Family, Partner, Friends, Self).
+**Purpose:** Daily/weekly reason to open; show Social Bar and Weekly Capacity with level stage (Min / Balance / Max); show monthly % by category (Colleagues, Family, Partner, Friends, Self).
 
 ```
 +--------------------------------------------------+
@@ -155,7 +157,7 @@
 | (Min / Balance / Max)                            |
 |--------------------------------------------------|
 | This Month — Social bar by category              |
-| Work:    25%  Family: 20%  Partner: 15%           |
+| Colleagues: 25%  Family: 20%  Partner: 15%        |
 | Friends: 30%  Self:   10%                         |
 |--------------------------------------------------|
 | Quick Check-in (10 sec):                         |
@@ -176,7 +178,7 @@
 **Components**
 - Social Bar (Today): meter, %, and stage (Min / Balance / Max) + tooltip: “What changes this?”
 - Weekly Capacity: meter, % used, and stage (Min / Balance / Max) + guardrail messaging
-- Monthly: % of social bar per category (Work, Family, Partner, Friends, Self)
+- Monthly: % of social bar per category (Colleagues, Family, Partner, Friends, Self)
 - Reconnect suggestions (light CRM)
 - CTA shortcuts to create flows
 
@@ -194,7 +196,7 @@
 |--------------------------------------------------|
 | Pending Requests (3)                             |
 |--------------------------------------------------|
-| [Tom]  Deep Talk • 30 min • Fri 7:30 PM          |
+| [Tom]  Deep-Connection • 1 hr • Fri 7:30 PM      |
 | From: Tom (Friend) • SLC                         |
 | Social Bar impact (this event): +12%             |
 | Brief: "Catch up + talk through what's new."     |
@@ -270,7 +272,7 @@
 | Name:       [_________________________]          |
 | Phone:      [_________________________]          |
 | Email:      [_________________________]          |
-| Status:     [Friend ▾] (Friend/Partner/Family/Work)|
+| Status:     [Friend ▾] (Friend/Partner/Family/Colleagues)|
 | City:       [_________________________]          |
 | Cadence:    [Monthly ▾] (Weekly/Bi-weekly/Monthly)|
 | Notes:      [_________________________]          |
@@ -304,7 +306,7 @@
 | Tom (Friend) • SLC                    [⋯] [Add to group] |
 |--------------------------------------------------|
 | Status: [Friend ▾] (Friend/Family/Partner/Colleagues)   |
-| Sort by group: [All] [Family] [Close friends] [Work] …  |
+| Sort by group: [All] [Family] [Close friends] [Colleagues] …  |
 |--------------------------------------------------|
 | Person goals for BondConnect                      |
 | Primary:   Focus more on romantic relationship    |
@@ -324,7 +326,7 @@
 | Who engages more: You (you initiate 58% of the time)    |
 |--------------------------------------------------|
 | Next Suggested Touch: This week                   |
-| [Plan Quick Call] [Plan Deep Talk] [Invite Event] |
+| [Plan Quick Call] [Plan Deep-Connection] [Invite Event] |
 |--------------------------------------------------|
 | Notes                                             |
 | - High school friend, catch up on life             |
@@ -332,7 +334,7 @@
 |--------------------------------------------------|
 | History of events                                 |
 | • Jan 12 — Quick Call (15m) — Neutral             |
-| • Oct 01 — Deep Talk (30m) — Energizing            |
+| • Oct 01 — Deep-Connection (1 hr) — Energizing    |
 | • Sep 15 — Dinner — Energizing                    |
 | • Aug 03 — Quick Call (15m) — Neutral             |
 +--------------------------------------------------+
@@ -368,7 +370,7 @@
 | 22 23 24 25 26 27 28      |                      |
 |--------------------------------------------------|
 | Upcoming (social % each event)                    |
-| • Fri 7:30 PM — Deep Talk w/ Tom    +12% [Pending]|
+| • Fri 7:30 PM — Deep-Connection w/ Tom +12% [Pending]|
 | • Sat 6:00 PM — Dinner Event       +18% [Pending]|
 | • Tue 12:00 PM — Quick Call Ashley  +8% [Pending]|
 |--------------------------------------------------|
@@ -722,9 +724,9 @@
 | • Location: [_________________________]           |
 |--------------------------------------------------|
 | Social bar — categorize by relationship           |
-| Set how Friend, Family, Partner, Work count:      |
+| Set how Friend, Family, Partner, Colleagues count:|
 | Friend:   [■■■■□]  Family: [■■■■■]               |
-| Partner:  [■■■■■]  Work:   [■■■□□]               |
+| Partner:  [■■■■■]  Colleagues: [■■■□□]           |
 | (slider or % per category)                        |
 |--------------------------------------------------|
 | Social bar scale                                  |
@@ -772,7 +774,7 @@
 ---
 
 ## Open Questions (Captured for Later)
-- Define the “three options” in Event Type Picker (assumed: Quick Call, Deep Talk, Event).
+- Define the “three options” in Event Type Picker (assumed: Quick Call, Deep-Connection, Event).
 - Decide whether Inbox is its own tab or accessed via Home bell icon.
 - Define Social Bar math and weekly capacity model (needed for guardrail copy).
 - Determine RSVP behavior and group chat behavior for Events.

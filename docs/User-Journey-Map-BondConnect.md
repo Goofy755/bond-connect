@@ -5,6 +5,7 @@
 ## Principles (cross-cutting)
 
 - **Sender and receiver both see their own current social bar** in invite/accept/reschedule flows.
+- **Social bar is shown in context where decisions affect it.** Use consistent copy: "current social bar" and "impact that day" where relevant.
 
 ---
 
@@ -20,7 +21,7 @@ Mike is a 38-year-old who has worked in commercial real estate for 20 years. He'
 2. Creates an account.
 3. The app may prompt for **notification and calendar permissions** (optional). User can set **when to get notifications** (e.g. preferred time, quiet hours, reminder lead time).
 4. He wants to connect with his high school friend Tom, whom he hasn't seen in years.
-5. He opens the **Calendar** or **Events** tab (calendar view with [+ Add]), taps **[+ Add]**, and chooses from a list of three options — **Quick Phone Call** (15 min), **Deep Talk** (30 min), or **Event** (or **Customize event** for a custom type). When creating, he sees his **current social bar** and, once the date is set, **impact that day**. He picks **Deep Talk**.
+5. He opens the **Calendar** or **Events** tab (calendar view with [+ Add]), taps **[+ Add]**, and chooses from a list of three options — **Quick Phone Call** (15 min), **Deep-Connection** (1 hr or 2 hr per request), or **Event** (or **Customize event** for a custom type). When creating, he sees his **current social bar** and, once the date is set, **impact that day**. He picks **Deep-Connection**.
 6. He selects the person to speak to — Tom (already registered in the system).
 7. The system shows a review screen; he chooses to send invite by **text, email, or both**; everything looks ok. He accepts.
 8. The system sends an invitation to Tom, and the event is in **Pending** status.
@@ -45,7 +46,7 @@ Mike is a 38-year-old who has worked in commercial real estate for 20 years. He'
 2. The main home screen opens.
 3. User clicks on the **Contacts** tab and **[+ Add]**, which shows:
    - Name, phone, email (separate)
-   - Status (Friend, Partner, Family, Work)
+   - Status (Friend, Partner, Family, Colleagues)
    - City
    - Cadence (e.g. how often to connect: Weekly, Bi-weekly, Monthly)
 4. User can **send invite by text, email, or both** (with editable pre-written prompt); or **add via QR** — scan their BondConnect QR code, or **show my QR code** for them to scan.
@@ -66,7 +67,7 @@ Mike is a 38-year-old who has worked in commercial real estate for 20 years. He'
    - Number of requests; request sent by: contact name, status (Friend, Partner, Family, Work), location/city, time last sent, duration
    - **When contact typically checks inbox or responds** (e.g. often morning/late evening; rarely late morning/afternoon)
    - **New contact requests:** **Accept / Let's schedule** or **Decline**
-5. User **accepts**, **reschedules**, or **declines** (for event invites); for new contacts, user chooses **Accept / Let's schedule** or **Decline**. The system shows a confirm/review step as needed. User ends up in the **Contacts** tab. (Optional: can go to the **Calendar** or **Events** tab.)
+5. User **accepts**, **reschedules**, or **declines** (for event invites); for new contacts, user chooses **Accept / Let's schedule** or **Decline**. The system shows a confirm/review step as needed. User returns to **Contacts** tab (or stays in Inbox, depending on product choice). (Optional: can go to the **Calendar** or **Events** tab.)
 
 > **Principle:** Sender and receiver both see their own current social bar in invite/accept/reschedule flows.
 
@@ -83,7 +84,7 @@ Mike is a 38-year-old who has worked in commercial real estate for 20 years. He'
    - **Invitee sees their current social bar** (week or event date) **and impact of accepting**
    - **When contact typically checks inbox or responds** (e.g. often morning/late evening; rarely late morning/afternoon)
 5. User can **Accept**, **Reschedule**, or **Decline**.
-   - **Accept** — System shows a confirm screen; everything looks ok. User ends up in the Contacts tab.
+   - **Accept** — System shows a confirm screen; everything looks ok. User returns to **Contacts** tab (or stays in Inbox, depending on product choice).
    - **Reschedule** — System shows **both parties’ social bar and impact**; **each suggested time shows impact that day**. User picks a slot or a new date/time, then sends a new time proposal to the sender.
    - **Decline** — Sender gets a notification that it doesn’t fit the schedule.
 6. The system sends to the user, and the event remains in **Pending** status.
@@ -119,7 +120,7 @@ Mike is a 38-year-old who has worked in commercial real estate for 20 years. He'
 
 - Social bar meter — with stages (Min / Balance / Max) for today
 - Weekly capacity bar — with stage (Min / Balance / Max) for the week
-- Monthly % breakdown by relationship category (Work, Family, Partner, Friends, Self)
+- Monthly % breakdown by relationship category (Colleagues, Family, Partner, Friends, Self)
 - Suggested / recommended contacts (auto request)
 - Status of connections throughout the month
 
@@ -159,14 +160,14 @@ Mike is a 38-year-old who has worked in commercial real estate for 20 years. He'
 
 ### Events tab
 
-- Opens the same calendar view as the Calendar tab, with [+ Add] to create a Quick Call, Deep Talk, or Event. Event creation includes: contact(s), description, length, date/time, location, RSVP (optional).
+- Opens the same calendar view as the Calendar tab, with [+ Add] to create a Quick Call, Deep-Connection, or Event. Event creation includes: contact(s), description, length, date/time, location, RSVP (optional).
 
 ---
 
 ## Journey 8: Post-Event Check-in
 
-1. After an event or call (e.g. Deep Talk with Tom), the app prompts the user.
-2. User is asked how the connection felt: **Energizing**, **Neutral**, **Draining**, or **Deep**.
+1. After an event or call (e.g. Deep-Connection with Tom), the app prompts the user.
+2. User is asked how the connection felt: **Energizing**, **Neutral**, **Draining**, or **Deep** (meaningful/fulfilling connection).
 3. User can optionally say when they want to reconnect again: **Soon**, **Later**, or **Pause**; **set a reminder**; and add an optional note (or **voice-to-text**).
 4. User submits with **Track**. This feedback closes the loop and helps the Social Bar and suggestions.
 
@@ -179,7 +180,7 @@ Mike is a 38-year-old who has worked in commercial real estate for 20 years. He'
    - **Profile** — name, photo, timezone, location
    - **Appearance** — Light or Dark mode
    - **Account & security** — email, password, phone (change/add)
-   - **Social bar categories & scale** — set how Friend, Family, Partner, Work count; scale/sensitivity (Low/Medium/High); weekly capacity target
+   - **Social bar categories & scale** — set how Friend, Family, Partner, Colleagues count; scale/sensitivity (Low/Medium/High); weekly capacity target
    - **Calendar links** — Apple Calendar, Google Calendar, Calendly
    - **Other social links** — add LinkedIn, Instagram, etc.
    - **Privacy** — block/report user, data export/delete
