@@ -394,7 +394,7 @@
 ---
 
 # 11) Event Type Picker (3 options + customize)
-**Purpose:** Choose event type; see current Social Bar % and how much each type adds to it. Option to customize event. “three options”.
+**Purpose:** Choose event type; see current Social Bar % and how much each type adds to it. Option to customize event (Quick Call, Deep-Connection, Event).
 
 ```
 +--------------------------------------------------+

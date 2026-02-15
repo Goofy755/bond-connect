@@ -64,7 +64,7 @@ Mike is a 38-year-old who has worked in commercial real estate for 20 years. He'
    - **Weekly social bar** (your social energy used this week)
    - **Per-request impact** (how much % each event adds to your social bar)
    - **Invitee sees their current social bar** (week or event date) **and impact of accepting**
-   - Number of requests; request sent by: contact name, status (Friend, Partner, Family, Work), location/city, time last sent, duration
+   - Number of requests; request sent by: contact name, status (Friend, Partner, Family, Colleagues), location/city, time last sent, duration
    - **When contact typically checks inbox or responds** (e.g. often morning/late evening; rarely late morning/afternoon)
    - **New contact requests:** **Accept / Let's schedule** or **Decline**
 5. User **accepts**, **reschedules**, or **declines** (for event invites); for new contacts, user chooses **Accept / Let's schedule** or **Decline**. The system shows a confirm/review step as needed. User returns to **Contacts** tab (or stays in Inbox, depending on product choice). (Optional: can go to the **Calendar** or **Events** tab.)
