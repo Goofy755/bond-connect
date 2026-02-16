@@ -7,13 +7,13 @@
 
 ## Global Navigation (Bottom Tabs)
 - **Home**
+- **Inbox** (dedicated tab; badge/count for pending items; also reachable via Home bell)
 - **Contacts**
 - **Calendar**
 - **Chat**
 - **Events**
-- *(Optional)* **Inbox** (if not merged into Home/Chat)
 
-> **Note:** The **Calendar** and **Events** tabs both open the same calendar view (month + upcoming). **[+ Add]** from either tab opens the Event Type Picker (Quick Call, Deep-Connection, Event). Inbox is accessible from Home (bell icon) and optionally as a dedicated tab.
+> **Note:** The **Calendar** and **Events** tabs both open the same calendar view (month + upcoming). **[+ Add]** from either tab opens the Event Type Picker (Quick Call, Deep-Connection, Event). **Inbox** is a dedicated tab; the Home screen bell icon opens or deep-links to Inbox (e.g. from a notification).
 
 ---
 
@@ -185,7 +185,7 @@
 ---
 
 # 6) Inbox / Requests (Invites + Contact Requests)
-**Purpose:** Notification → Inbox tab; shows **weekly social bar** and **per-request impact**; event requests: accept / reschedule / decline; **new contact: Accept / Let's schedule or Decline**. After Accept (confirm) or Decline, user returns to **Contacts** tab (or stays in Inbox, depending on product choice).
+**Purpose:** Notification → Inbox tab; shows **weekly social bar** and **per-request impact**; event requests: accept / reschedule / decline; **new contact: Accept / Let's schedule or Decline**. After **Confirm** (Accept) or **Send Decline**, user **stays in Inbox** (list updates; user can act on the next item or leave).
 
 ```
 +--------------------------------------------------+
@@ -278,7 +278,7 @@
 | Notes:      [_________________________]          |
 |--------------------------------------------------|
 | Send invite                                      |
-| [Send text message]  [Send email]                |
+| [Send text message]  [Send email]  [Both]        |
 | Pre-written prompt:                              |
 | "Hi, I'd like to connect with you on BondConnect  |
 |  so we can stay in touch and plan time together." |
@@ -292,7 +292,7 @@
 
 **Components**
 - **Phone** and **Email** as separate inputs.
-- **Send invite:** Choose **Send text message** or **Send email**; app uses pre-written prompt (user can edit before sending).
+- **Send invite:** Choose **Send text message**, **Send email**, or **Both** (sends to phone and email when both are provided); app uses pre-written prompt (user can edit before sending).
 - **Scan QR:** Add contact by scanning their BondConnect QR code.
 - **Show my QR code:** User shares their QR so the other person can scan to connect.
 
@@ -573,7 +573,7 @@
 ---
 
 # 18) Respond to Invite (Accept / Reschedule / Decline)
-**Purpose:** From Inbox, user confirms Accept or sends Decline; sees Deep-Connection (1 hr or 2 hr), current social bar, and impact. After **Confirm** or **Send Decline**, user returns to **Contacts** tab (aligned with Journey).
+**Purpose:** From Inbox, user confirms Accept or sends Decline; sees Deep-Connection (1 hr or 2 hr), current social bar, and impact. After **Confirm** or **Send Decline**, user **returns to Inbox** (list view).
 
 **Accept**
 ```
@@ -680,6 +680,12 @@
 # 21) Post-Event Check-in (Micro-Reflection)
 **Purpose:** Close the feedback loop after event/call.
 
+**Components**
+- **Feeling options:** Energizing, Neutral, Draining, **Deep** (tooltip/helper: “meaningful/fulfilling connection”).
+- **Remind me:** Optional reminder to reach out again.
+- **Optional note:** Free text or voice-to-text.
+- **[Track]:** Saves reflection and updates history.
+
 ```
 +--------------------------------------------------+
 | Quick Check-in                                    |
@@ -688,6 +694,7 @@
 |--------------------------------------------------|
 | How did that connection feel?                     |
 | [Energizing 😊] [Neutral 🙂] [Draining 😮‍💨] [Deep] |
+| (Deep = meaningful/fulfilling connection)        |
 |--------------------------------------------------|
 | Want to reconnect again?                          |
 | [Soon] [Later] [Pause]                            |
@@ -775,7 +782,6 @@
 
 ## Open Questions (Captured for Later)
 - Define the “three options” in Event Type Picker (assumed: Quick Call, Deep-Connection, Event).
-- Decide whether Inbox is its own tab or accessed via Home bell icon.
 - Define Social Bar math and weekly capacity model (needed for guardrail copy).
 - Determine RSVP behavior and group chat behavior for Events.
 

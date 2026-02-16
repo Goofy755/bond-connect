@@ -67,7 +67,7 @@ Mike is a 38-year-old who has worked in commercial real estate for 20 years. He'
    - Number of requests; request sent by: contact name, status (Friend, Partner, Family, Colleagues), location/city, time last sent, duration
    - **When contact typically checks inbox or responds** (e.g. often morning/late evening; rarely late morning/afternoon)
    - **New contact requests:** **Accept / Let's schedule** or **Decline**
-5. User **accepts**, **reschedules**, or **declines** (for event invites); for new contacts, user chooses **Accept / Let's schedule** or **Decline**. The system shows a confirm/review step as needed. User returns to **Contacts** tab (or stays in Inbox, depending on product choice). (Optional: can go to the **Calendar** or **Events** tab.)
+5. User **accepts**, **reschedules**, or **declines** (for event invites); for new contacts, user chooses **Accept / Let's schedule** or **Decline**. The system shows a confirm/review step as needed. User **stays in Inbox** (list updates; can act on next item or leave). (Optional: can go to the **Calendar** or **Events** tab.)
 
 > **Principle:** Sender and receiver both see their own current social bar in invite/accept/reschedule flows.
 
@@ -84,7 +84,7 @@ Mike is a 38-year-old who has worked in commercial real estate for 20 years. He'
    - **Invitee sees their current social bar** (week or event date) **and impact of accepting**
    - **When contact typically checks inbox or responds** (e.g. often morning/late evening; rarely late morning/afternoon)
 5. User can **Accept**, **Reschedule**, or **Decline**.
-   - **Accept** — System shows a confirm screen; everything looks ok. User returns to **Contacts** tab (or stays in Inbox, depending on product choice).
+   - **Accept** — System shows a confirm screen; everything looks ok. User **stays in Inbox** (list updates; can act on next item or leave).
    - **Reschedule** — System shows **both parties’ social bar and impact**; **each suggested time shows impact that day**. User picks a slot or a new date/time, then sends a new time proposal to the sender.
    - **Decline** — Sender gets a notification that it doesn’t fit the schedule.
 6. The system sends to the user, and the event remains in **Pending** status.
@@ -111,6 +111,7 @@ Mike is a 38-year-old who has worked in commercial real estate for 20 years. He'
 1. Opens the app (already installed and logged in).
 2. The main home screen shows:
    - **Home**
+   - **Inbox** (dedicated tab; badge for pending items; also reachable via Home bell)
    - **Contacts**
    - **Calendar**
    - **Chat or Messenger**
@@ -123,6 +124,14 @@ Mike is a 38-year-old who has worked in commercial real estate for 20 years. He'
 - Monthly % breakdown by relationship category (Colleagues, Family, Partner, Friends, Self)
 - Suggested / recommended contacts (auto request)
 - Status of connections throughout the month
+- Bell icon (opens or deep-links to **Inbox**)
+
+### Inbox tab
+
+- Pending event invites and new contact requests
+- **Weekly social bar** and **per-request impact** for each item
+- **Accept / Reschedule / Decline** (events); **Accept / Let's schedule** or **Decline** (new contacts)
+- After Accept or Decline, user stays in Inbox (list updates)
 
 ### Contacts tab
 
