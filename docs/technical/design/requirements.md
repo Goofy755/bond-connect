@@ -18,7 +18,7 @@ BondConnect is a mobile application (iOS-first via React Native/Expo) that helps
 | **Social Bar** | A battery metaphor representing a user's current social energy capacity (0–100%) |
 | **SSH** | Standard Social Hour — the baseline cost unit; 1 SSH = 20% drain for Pm=1.0 |
 | **SLU** | Social Load Unit — accumulated event cost per day/week |
-| **Ghost Bar** | A semi-transparent UI overlay projecting the Social Bar 2–4 hrs into the future (lagged fatigue) |
+| **Ghost Bar** | A semi-transparent UI overlay projecting the Social Bar **4 hours** into the future (lagged fatigue) |
 | **Pm** | Personality Multiplier — scales event drain based on introvert/extrovert/ambivert profile |
 | **Isolation Drain** | Automatic homeostatic drain applied when a user has had no social contact for 6+ hours |
 | **Solo Recharge** | User-toggled mode indicating intentional solitude; halts Isolation Drain and begins restoration |
@@ -56,7 +56,7 @@ BondConnect is a mobile application (iOS-first via React Native/Expo) that helps
 |:---|:---|
 | FR-10 | The app shall compute a real-time Social Bar % for both the current day and the current week |
 | FR-11 | The Social Bar shall display three threshold stages: `Min`, `Balance`, and `Max` |
-| FR-12 | The app shall display a **Ghost Bar** (semi-transparent overlay) projecting the Social Bar 2–4 hours into the future based on recent and upcoming events |
+| FR-12 | The app shall display a **Ghost Bar** (semi-transparent overlay) projecting the Social Bar **4 hours** into the future based on confirmed and pending upcoming events |
 | FR-13 | When the weekly bar exceeds 80% (configurable), the app shall display a Guardrail message |
 | FR-14 | The Home Dashboard shall show a monthly breakdown of Social Bar usage by relationship category (Friend, Family, Partner, Colleague, Self) |
 
@@ -77,7 +77,7 @@ BondConnect is a mobile application (iOS-first via React Native/Expo) that helps
 | ID | Requirement |
 |:---|:---|
 | FR-30 | Users shall create three event types: Quick Call (15m or 30m), Deep-Connection (1hr or 2hr+), and Group Event (custom duration) |
-| FR-31 | The system shall call `calculateSocialImpact` on every event form change and display the projected drain (%) in real-time before saving |
+| FR-31 | The system shall call `calculateSocialImpact` after a client-side debounce (~500ms) on event form changes and display the projected drain (%) in real-time before saving |
 | FR-32 | When a date is set, the system shall show "Impact that day: X% → Day total: Y%" on the creation form |
 | FR-33 | The system shall auto-classify the event location using the Google Maps Places API into `restorative`, `neutral`, or `stressful`, applying the Environment Weight (Ew) to the drain calculation |
 | FR-34 | Users shall be able to manually override the location classification (e.g., tag as "Nature" or "Quiet Space") |
@@ -151,7 +151,7 @@ BondConnect is a mobile application (iOS-first via React Native/Expo) that helps
 | ID | Requirement |
 |:---|:---|
 | FR-90 | If a user's reported sentiment consistently deviates from the predicted impact (2+ consecutive events), the app shall display a nudge: "It seems you're draining faster than expected. Adjust sensitivity?" |
-| FR-91 | If the user confirms the nudge, the system shall adjust the Personality Multiplier (Pm) accordingly |
+| FR-91 | If the user confirms the nudge, the system shall adjust the Personality Multiplier (Pm) by ±0.05. Pm is seeded by personality type (Introvert: 1.4, Ambivert: 1.0, Extrovert: 0.7) and clamped to the range [0.5, 2.0] |
 
 ---
 
